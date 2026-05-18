@@ -92,7 +92,7 @@ st.markdown(f"""
             text-transform: uppercase;
         }}
     </style>
-""", unsafe_allowed_html=True)
+""", unsafe_allow_html=True)
 
 # Encabezado con Logo y Título
 col_logo, col_title = st.columns([1, 4])
