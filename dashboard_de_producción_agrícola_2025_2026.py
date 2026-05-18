@@ -261,15 +261,43 @@ with graph_col1:
         secondary_y=True
     )
 
+    #fig_export.update_layout(
+    #    plot_bgcolor='white',
+    #    paper_bgcolor='white',
+        # Leyenda centrada arriba
+    #    legend=dict(orientation="h", yanchor="bottom", y=1.05, xanchor="center", x=0.5, font=dict(size=10, color='#475569')),
+    #    margin=dict(l=0, r=0, t=30, b=10), # Más margen superior para la leyenda
+    #    xaxis=dict(showgrid=False, linecolor='#e2e8f0', tickfont=dict(color='#94a3b8', size=10)),
+    #    yaxis=dict(showgrid=True, gridcolor='#f1f5f9', linecolor='rgba(0,0,0,0)', tickfont=dict(color='#94a3b8', size=10), rangemode='tozero'),
+    #    yaxis2=dict(showgrid=False, linecolor='rgba(0,0,0,0)', tickfont=dict(color=PISTACHIO, size=10), ticksuffix="%", rangemode='tozero'),
+    #    height=360,
+    #    bargap=0.3
+    
     fig_export.update_layout(
         plot_bgcolor='white',
         paper_bgcolor='white',
-        # Leyenda centrada arriba
         legend=dict(orientation="h", yanchor="bottom", y=1.05, xanchor="center", x=0.5, font=dict(size=10, color='#475569')),
-        margin=dict(l=0, r=0, t=30, b=10), # Más margen superior para la leyenda
+        margin=dict(l=0, r=0, t=30, b=10),
         xaxis=dict(showgrid=False, linecolor='#e2e8f0', tickfont=dict(color='#94a3b8', size=10)),
-        yaxis=dict(showgrid=True, gridcolor='#f1f5f9', linecolor='rgba(0,0,0,0)', tickfont=dict(color='#94a3b8', size=10), rangemode='tozero'),
-        yaxis2=dict(showgrid=False, linecolor='rgba(0,0,0,0)', tickfont=dict(color=PISTACHIO, size=10), ticksuffix="%", rangemode='tozero'),
+        
+        # Eje Y principal (Kilos)
+        yaxis=dict(
+            showgrid=True, 
+            gridcolor='#f1f5f9', 
+            linecolor='rgba(0,0,0,0)', 
+            tickfont=dict(color='#94a3b8', size=10), 
+            rangemode='tozero'
+        ),
+        
+        # Eje Y secundario (Eficiencia %) ¡Sincronizado!
+        yaxis2=dict(
+            showgrid=False, 
+            linecolor='rgba(0,0,0,0)', 
+            tickfont=dict(color=PISTACHIO, size=10), 
+            ticksuffix="%", 
+            range=[0, 105],       # Fijamos el rango para que el 100% quede siempre arriba
+            tickmode='sync'       # Obliga a que las marcas coincidan con las líneas del eje izquierdo
+        ),
         height=360,
         bargap=0.3
     )
