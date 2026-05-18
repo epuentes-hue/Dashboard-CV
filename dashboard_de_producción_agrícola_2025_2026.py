@@ -336,41 +336,37 @@ table_html = f"""
 
 for _, row in grouped_df.iterrows():
     pct = row['export_pct']
-    table_html += f"""
-        <tr style="border-bottom: 1px solid #f1f5f9; transition: background-color 0.2s;">
-            <td style="padding: 16px; text-align: left; font-weight: bold; color: #1e293b;">
-                <span style="font-size: 10px; color: #94a3b8; display: block; font-weight: 500; margin-bottom: 2px;">{row['especie']}</span>
-                {row['variedad']}
-            </td>
-            <td style="padding: 16px; text-align: right; color: #64748b;">{fmt_dec(row['hectareas'])} ha</td>
-            <td style="padding: 16px; text-align: right; font-weight: 600; color: #334155;">{fmt_int(row['cosechos'])}</td>
-            <td style="padding: 16px; text-align: right; font-weight: 600; color: {NAVY};">{fmt_int(row['exportacias'])}</td>
-            <td style="padding: 16px; text-align: right; font-weight: bold; color: {PISTACHIO}; background-color: rgba(147, 197, 114, 0.04);">{fmt_int(row['cajas'])}</td>
-            <td style="padding: 16px; text-align: right; font-weight: bold; color: {NAVY};">
-                <div style="display: inline-flex; align-items: center; gap: 8px;">
-                    <div style="width: 60px; height: 5px; background-color: #f1f5f9; border-radius: 999px; overflow: hidden; display: inline-block;">
-                        <div style="width: {pct}%; height: 100%; background-color: {PISTACHIO};"></div>
-                    </div>
-                    <span>{pct:.1f}%</span>
-                </div>
-            </td>
-            <td style="padding: 16px; text-align: right; color: #94a3b8; font-style: italic;">{fmt_int(row['rendimiento'])} kg/ha</td>
-        </tr>
-    """
+    table_html += f"""<tr style="border-bottom: 1px solid #f1f5f9; transition: background-color 0.2s;">
+<td style="padding: 16px; text-align: left; font-weight: bold; color: #1e293b;">
+    <span style="font-size: 10px; color: #94a3b8; display: block; font-weight: 500; margin-bottom: 2px;">{row['especie']}</span>
+    {row['variedad']}
+</td>
+<td style="padding: 16px; text-align: right; color: #64748b;">{fmt_dec(row['hectareas'])} ha</td>
+<td style="padding: 16px; text-align: right; font-weight: 600; color: #334155;">{fmt_int(row['cosechos'])}</td>
+<td style="padding: 16px; text-align: right; font-weight: 600; color: {NAVY};">{fmt_int(row['exportacias'])}</td>
+<td style="padding: 16px; text-align: right; font-weight: bold; color: {PISTACHIO}; background-color: rgba(147, 197, 114, 0.04);">{fmt_int(row['cajas'])}</td>
+<td style="padding: 16px; text-align: right; font-weight: bold; color: {NAVY};">
+    <div style="display: inline-flex; align-items: center; gap: 8px;">
+        <div style="width: 60px; height: 5px; background-color: #f1f5f9; border-radius: 999px; overflow: hidden; display: inline-block;">
+            <div style="width: {pct}%; height: 100%; background-color: {PISTACHIO};"></div>
+        </div>
+        <span>{pct:.1f}%</span>
+    </div>
+</td>
+<td style="padding: 16px; text-align: right; color: #94a3b8; font-style: italic;">{fmt_int(row['rendimiento'])} kg/ha</td>
+</tr>"""
 
 # Fila de Totales Consolidados
 if len(grouped_df) > 1:
-    table_html += f"""
-        <tr style="background-color: #f8fafc; font-weight: bold; font-size: 13px; color: {NAVY}; border-top: 2px solid #e2e8f0;">
-            <td style="padding: 16px; text-align: left; letter-spacing: 0.05em;">TOTALES</td>
-            <td style="padding: 16px; text-align: right;">{fmt_dec(total_ha)} ha</td>
-            <td style="padding: 16px; text-align: right;">{fmt_int(total_cosecha)} kg</td>
-            <td style="padding: 16px; text-align: right;">{fmt_int(total_export)} kg</td>
-            <td style="padding: 16px; text-align: right; color: {PISTACHIO};">{fmt_int(total_cajas)} cajas</td>
-            <td style="padding: 16px; text-align: right;">{avg_export_pct:.1f}%</td>
-            <td style="padding: 16px; text-align: right; color: #94a3b8;">{fmt_int(kg_por_ha)} kg/ha</td>
-        </tr>
-    """
+    table_html += f"""<tr style="background-color: #f8fafc; font-weight: bold; font-size: 13px; color: {NAVY}; border-top: 2px solid #e2e8f0;">
+<td style="padding: 16px; text-align: left; letter-spacing: 0.05em;">TOTALES</td>
+<td style="padding: 16px; text-align: right;">{fmt_dec(total_ha)} ha</td>
+<td style="padding: 16px; text-align: right;">{fmt_int(total_cosecha)} kg</td>
+<td style="padding: 16px; text-align: right;">{fmt_int(total_export)} kg</td>
+<td style="padding: 16px; text-align: right; color: {PISTACHIO};">{fmt_int(total_cajas)} cajas</td>
+<td style="padding: 16px; text-align: right;">{avg_export_pct:.1f}%</td>
+<td style="padding: 16px; text-align: right; color: #94a3b8;">{fmt_int(kg_por_ha)} kg/ha</td>
+</tr>"""
 
 table_html += "</tbody></table>"
 
