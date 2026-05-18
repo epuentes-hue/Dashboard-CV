@@ -104,7 +104,7 @@ with col_logo:
         st.image(img, use_column_width=False, width=150)
     else:
         # Fallback decorativo elegante si el logo no carga localmente
-        st.markdown(f"<div style='background-color: {NAVY}; width:60px; height:60px; border-radius:4px;'></div>", unsafe_allowed_html=True)
+        st.markdown(f"<div style='background-color: {NAVY}; width:60px; height:60px; border-radius:4px;'></div>", unsafe_allow_html=True)
 
 with col_title:
     st.markdown(f"""
@@ -116,9 +116,9 @@ with col_title:
                 Temporada 2025-2026
             </p>
         </div>
-    """, unsafe_allowed_html=True)
+    """, unsafe_allow_html=True)
 
-st.markdown("<hr style='margin-top: 20px; margin-bottom: 30px; border-color: #f1f5f9;' />", unsafe_allowed_html=True)
+st.markdown("<hr style='margin-top: 20px; margin-bottom: 30px; border-color: #f1f5f9;' />", unsafe_allow_html=True)
 
 # Filtros Interactivos actualizables dinámicamente
 filter_col1, filter_col2 = st.columns(2)
@@ -161,7 +161,7 @@ with kpi_cols[0]:
             <div class="kpi-title">Superficie Total</div>
             <div class="kpi-value">{fmt_dec(total_ha)} <span class="kpi-unit">ha</span></div>
         </div>
-    """, unsafe_allowed_html=True)
+    """, unsafe_allow_html=True)
 
 with kpi_cols[1]:
     st.markdown(f"""
@@ -169,7 +169,7 @@ with kpi_cols[1]:
             <div class="kpi-title" style="color: {NAVY};">Cosecha Total</div>
             <div class="kpi-value">{fmt_int(total_cosecha)} <span class="kpi-unit">kg</span></div>
         </div>
-    """, unsafe_allowed_html=True)
+    """, unsafe_allow_html=True)
 
 with kpi_cols[2]:
     st.markdown(f"""
@@ -177,7 +177,7 @@ with kpi_cols[2]:
             <div class="kpi-title">Eficiencia</div>
             <div class="kpi-value">{avg_export_pct:.1f}%</div>
         </div>
-    """, unsafe_allowed_html=True)
+    """, unsafe_allow_html=True)
 
 with kpi_cols[3]:
     st.markdown(f"""
@@ -185,7 +185,7 @@ with kpi_cols[3]:
             <div class="kpi-title">Cajas Exportadas</div>
             <div class="kpi-value">{fmt_int(total_cajas)} <span class="kpi-unit">cajas</span></div>
         </div>
-    """, unsafe_allowed_html=True)
+    """, unsafe_allow_html=True)
 
 # Procesamiento de datos para Gráficas
 # 1. Agrupamiento por Variedad
