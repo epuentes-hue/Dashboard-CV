@@ -298,7 +298,7 @@ with graph_col2:
             plot_bgcolor='white',
             paper_bgcolor='white',
             margin=dict(l=0, r=0, t=10, b=0),
-            xaxis=dict(showgrid=False, linecolor='#e2e8f0', tickfont=dict(color='#475569', size=11, bold=True)),
+            xaxis=dict(showgrid=False, linecolor='#e2e8f0', tickfont=dict(color='#475569', size=11)),
             yaxis=dict(showgrid=True, gridcolor='#f1f5f9', linecolor='rgba(0,0,0,0)', tickfont=dict(color='#94a3b8', size=10)),
             height=320
         )
