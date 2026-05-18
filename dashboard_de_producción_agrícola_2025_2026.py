@@ -230,7 +230,7 @@ with graph_col1:
                 Exportación: Volumen (kg) y Eficiencia (%)
             </span>
         </div>
-    """, unsafe_allowed_html=True)
+    """, unsafe_allow_html=True)
 
     fig_export = make_subplots(specs=[[{"secondary_y": True}]])
 
