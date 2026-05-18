@@ -281,7 +281,7 @@ with graph_col2:
                 Distribución de Calibres (%)
             </span>
         </div>
-    """, unsafe_allowed_html=True)
+    """, unsafe_allow_html=True)
 
     if not caliber_df.empty:
         fig_caliber = go.Figure()
@@ -307,7 +307,7 @@ with graph_col2:
         st.info("No hay calibres disponibles para los filtros seleccionados.")
 
 # Detalle Consolidado por Variedad (Tabla Estilizada HTML)
-st.markdown("<br>", unsafe_allowed_html=True)
+st.markdown("<br>", unsafe_allow_html=True)
 st.markdown(f"""
     <div style="display:flex; align-items:center; gap:8px; margin-bottom: 20px;">
         <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="{PISTACHIO}" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
@@ -315,7 +315,7 @@ st.markdown(f"""
             Detalle Consolidado por Variedad
         </span>
     </div>
-""", unsafe_allowed_html=True)
+""", unsafe_allow_html=True)
 
 # Armar la tabla en HTML para un diseño idéntico al solicitado (con barras de progreso y colores limpios)
 table_html = f"""
