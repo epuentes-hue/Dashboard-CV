@@ -219,8 +219,8 @@ if not caliber_df.empty:
     caliber_df['order'] = caliber_df['Calibre'].map(lambda x: CALIBER_ORDER.index(x) if x in CALIBER_ORDER else 999)
     caliber_df = caliber_df.sort_values('order').drop(columns=['order'])
 
-# Sección de Gráficos (Columnas 2:1)
-graph_col1, graph_col2 = st.columns([2, 1])
+# 1. Proporción más equilibrada (1.3 a 1 en lugar de 2 a 1)
+graph_col1, graph_col2 = st.columns([1.3, 1])
 
 with graph_col1:
     st.markdown(f"""
@@ -242,12 +242,12 @@ with graph_col1:
             name="Kilos Exportados",
             marker_color=NAVY,
             hovertemplate="<b>%{x}</b><br>Kilos Exportados: %{y:,.0f} kg<extra></extra>",
-            width=0.35
+            width=0.4 # Ancho máximo de barra controlado
         ),
         secondary_y=False
     )
 
-    # Línea de Eficiencia % (Sin decimales en tooltip)
+    # Línea de Eficiencia %
     fig_export.add_trace(
         go.Scatter(
             x=grouped_df['variedad'],
@@ -255,8 +255,8 @@ with graph_col1:
             name="Eficiencia %",
             mode="lines+markers",
             line=dict(color=PISTACHIO, width=3),
-            marker=dict(size=8, color=PISTACHIO),
-            hovertemplate="<b>%{x}</b><br>Eficiencia: %{y:.0f}%<extra></extra>"
+            marker=dict(size=10, color=PISTACHIO), # Marcador un poco más grande
+            hovertemplate="<b>%{x}</b><br>Eficiencia: %{y:.1f}%<extra></extra>"
         ),
         secondary_y=True
     )
@@ -264,13 +264,20 @@ with graph_col1:
     fig_export.update_layout(
         plot_bgcolor='white',
         paper_bgcolor='white',
-        legend=dict(orientation="h", yanchor="bottom", y=1.05, xanchor="right", x=1, font=dict(size=10, color='#475569')),
-        margin=dict(l=0, r=0, t=10, b=0),
+        # Leyenda centrada arriba
+        legend=dict(orientation="h", yanchor="bottom", y=1.05, xanchor="center", x=0.5, font=dict(size=10, color='#475569')),
+        margin=dict(l=0, r=0, t=30, b=10), # Más margen superior para la leyenda
         xaxis=dict(showgrid=False, linecolor='#e2e8f0', tickfont=dict(color='#94a3b8', size=10)),
-        yaxis=dict(showgrid=True, gridcolor='#f1f5f9', linecolor='rgba(0,0,0,0)', tickfont=dict(color='#94a3b8', size=10)),
-        yaxis2=dict(showgrid=False, linecolor='rgba(0,0,0,0)', tickfont=dict(color=PISTACHIO, size=10), ticksuffix="%"),
-        height=320,
+        yaxis=dict(showgrid=True, gridcolor='#f1f5f9', linecolor='rgba(0,0,0,0)', tickfont=dict(color='#94a3b8', size=10), rangemode='tozero'),
+        yaxis2=dict(showgrid=False, linecolor='rgba(0,0,0,0)', tickfont=dict(color=PISTACHIO, size=10), ticksuffix="%", rangemode='tozero'),
+        height=360,
+        bargap=0.3
     )
+
+    # 2. EL TRUCO: Si hay solo 1 variedad, forzamos los márgenes del eje X para que la barra no se expanda
+    if len(grouped_df) == 1:
+        fig_export.update_xaxes(range=[-0.5, 0.5])
+
     st.plotly_chart(fig_export, use_container_width=True, config={'displayModeBar': False})
 
 with graph_col2:
@@ -297,10 +304,10 @@ with graph_col2:
         fig_caliber.update_layout(
             plot_bgcolor='white',
             paper_bgcolor='white',
-            margin=dict(l=0, r=0, t=10, b=0),
+            margin=dict(l=0, r=0, t=30, b=10),
             xaxis=dict(showgrid=False, linecolor='#e2e8f0', tickfont=dict(color='#475569', size=11)),
-            yaxis=dict(showgrid=True, gridcolor='#f1f5f9', linecolor='rgba(0,0,0,0)', tickfont=dict(color='#94a3b8', size=10)),
-            height=320
+            yaxis=dict(showgrid=True, gridcolor='#f1f5f9', linecolor='rgba(0,0,0,0)', tickfont=dict(color='#94a3b8', size=10), rangemode='tozero'),
+            height=360
         )
         st.plotly_chart(fig_caliber, use_container_width=True, config={'displayModeBar': False})
     else:
