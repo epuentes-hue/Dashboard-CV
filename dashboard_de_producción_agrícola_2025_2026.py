@@ -276,7 +276,7 @@ with graph_col1:
 
     # 2. EL TRUCO: Si hay solo 1 variedad, forzamos los márgenes del eje X para que la barra no se expanda
     if len(grouped_df) == 1:
-        fig_export.update_xaxes(range=[-0.5, 0.5])
+        fig_export.update_xaxes(range=[-1.5, 1.5])
 
     st.plotly_chart(fig_export, use_container_width=True, config={'displayModeBar': False})
 
@@ -309,6 +309,13 @@ with graph_col2:
             yaxis=dict(showgrid=True, gridcolor='#f1f5f9', linecolor='rgba(0,0,0,0)', tickfont=dict(color='#94a3b8', size=10), rangemode='tozero'),
             height=360
         )
+        
+        # Truco aplicado también a los calibres
+        if len(caliber_df) == 1:
+            fig_caliber.update_xaxes(range=[-1.5, 1.5])
+        elif len(caliber_df) == 2:
+            fig_caliber.update_xaxes(range=[-1, 2])
+            
         st.plotly_chart(fig_caliber, use_container_width=True, config={'displayModeBar': False})
     else:
         st.info("No hay calibres disponibles para los filtros seleccionados.")
