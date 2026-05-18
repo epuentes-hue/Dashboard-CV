@@ -45,7 +45,7 @@ raw_data = [
     {"especie": "CEREZAS", "variedad": "SANTINA", "cuartel": "LOCHXNA23", "hectareas": 3.0, "cosechos": 1242, "exportacias": 1118, "cajas": 158, "export_pct": 90.0, "calibres": {"4J": 10, "3J": 3, "2J": 37, "J": 37, "XL": 20, "L": 2}},
     {"especie": "DAMASCOS", "variedad": "MIRANDELLA", "cuartel": "CRAPFLP24", "hectareas": 9.24, "cosechos": 45798, "exportacias": 26583, "cajas": 4183, "export_pct": 58.0, "calibres": {"66": 0, "72": 0, "84": 3, "78": 0, "88": 22, "98": 23, "108": 52}},
     {"especie": "NECTARINES", "variedad": "CAKE BELLA", "cuartel": "LONEBEL24", "hectareas": 4.0, "cosechos": 49570, "exportacias": 40608, "cajas": 4325, "export_pct": 82.0, "calibres": {"30": 8, "32": 43, "36": 24, "40": 11, "44": 6, "48": 4, "52": 3, "56": 0, "60": 0}},
-    {"especie": "NECTARINES", "variedad": "BORAL", "cuartel: "LONEBOR24", "hectareas": 4.0, "cosechos": 59975, "exportacias": 43550, "cajas": 5262, "export_pct": 73.0, "calibres": {"30": 0, "32": 2, "36": 15, "40": 18, "44": 20, "48": 10, "52": 8, "56": 15, "60": 11, "66": 6, "72": 3, "78": 0}},
+    {"especie": "NECTARINES", "variedad": "BORAL", "cuartel": "LONEBOR24", "hectareas": 4.0, "cosechos": 59975, "exportacias": 43550, "cajas": 5262, "export_pct": 73.0, "calibres": {"30": 0, "32": 2, "36": 15, "40": 18, "44": 20, "48": 10, "52": 8, "56": 15, "60": 11, "66": 6, "72": 3, "78": 0}},
     {"especie": "NECTARINES", "variedad": "CAKE DELICE", "cuartel": "LONEDEL24", "hectareas": 4.0, "cosechos": 78680, "exportacias": 64922, "cajas": 6984, "export_pct": 83.0, "calibres": {"30": 3, "32": 33, "36": 25, "40": 28, "44": 30, "48": 17, "52": 12, "56": 6, "60": 4, "66": 1, "72": 1, "78": 0}}
 ]
 
