@@ -374,4 +374,4 @@ if len(grouped_df) > 1:
 
 table_html += "</tbody></table>"
 
-st.markdown(table_html, unsafe_allowed_html=True)
+st.markdown(table_html, unsafe_allow_html=True)
